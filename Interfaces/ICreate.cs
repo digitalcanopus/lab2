@@ -8,7 +8,7 @@ namespace Interfaces
 {
     public interface ICreate
     {
-        object Create(Type type);
-        bool Exist(Type type);
+        public object Create(Type type);
+        public bool Exist(Type type);
     }
 }
