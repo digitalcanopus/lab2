@@ -11,4 +11,13 @@
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="One">
+      <HintPath>obj\Debug\net6.0\One.dll</HintPath>
+    </Reference>
+    <Reference Include="Two">
+      <HintPath>..\Two\obj\Debug\net6.0\Two.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
