@@ -9,5 +9,10 @@ namespace lab2._2
             return (T)Create(typeof(T));
         }
 
+        public object Create(Type type)
+        {
+
+        }
+
     }
 }
