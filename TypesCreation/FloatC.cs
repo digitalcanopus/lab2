@@ -15,5 +15,9 @@ namespace TypesCreation
             Random rnd = new Random();
             return (float)(rnd.NextDouble() * float.MaxValue);
         }
+        public bool Exist(Type type)
+        {
+            return type == typeof(float);
+        }
     }
 }

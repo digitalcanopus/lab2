@@ -15,5 +15,10 @@ namespace TypesCreation
             Random rnd = new Random();
             return rnd.Next(sbyte.MinValue, sbyte.MaxValue + 1);
         }
+
+        public bool Exist(Type type)
+        {
+            return type == typeof(sbyte);
+        }
     }
 }

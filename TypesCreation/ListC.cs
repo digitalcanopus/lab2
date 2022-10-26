@@ -24,9 +24,14 @@ namespace TypesCreation
             int size = rnd.Next(MinLen, MaxLen + 1);
             var elType = type.GetGenericArguments()[0];
             for (int i = 0; i < size; i++) 
-                list.Add(Faker.Create(elType));
+                //list.Add(Faker.Create(elType));
 
             return list;
+        }
+
+        public bool Exist(Type type)
+        {
+            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>);
         }
     }
 }

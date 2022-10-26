@@ -15,5 +15,10 @@ namespace TypesCreation
             Random rnd = new Random();
             return (ulong)rnd.NextInt64();
         }
+
+        public bool Exist(Type type)
+        {
+            return type == typeof(ulong);
+        }
     }
 }

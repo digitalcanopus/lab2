@@ -13,7 +13,12 @@ namespace TypesCreation
         public object Create(Type type)
         {
             Random rnd = new Random();
-            return (rnd.NextDouble() * double.MaxValue);
+            return rnd.NextDouble() * double.MaxValue;
+        }
+
+        public bool Exist(Type type)
+        {
+            return type == typeof(double);
         }
     }
 }

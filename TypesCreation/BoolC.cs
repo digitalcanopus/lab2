@@ -15,5 +15,10 @@ namespace TypesCreation
             Random rnd = new Random();
             return rnd.Next(0, 2);
         }
+
+        public bool Exist(Type type)
+        {
+            return type == typeof(bool);
+        }
     }
 }

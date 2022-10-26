@@ -8,17 +8,17 @@ using Interfaces;
 
 namespace TypesCreation
 {
-    public class ShortC : ICreate
+    public class DecC : ICreate
     {
         public object Create(Type type)
         {
             Random rnd = new Random();
-            return rnd.Next(sbyte.MinValue, sbyte.MaxValue + 1);
+            return (decimal)rnd.NextDouble() * decimal.MaxValue;
         }
 
         public bool Exist(Type type)
         {
-            return type == typeof(sbyte);
+            return type == typeof(decimal);
         }
     }
 }

@@ -9,5 +9,9 @@ namespace TypesCreation
             Random rnd = new Random();
             return rnd.Next(int.MinValue, int.MaxValue);
         }
+        public bool Exist(Type type)
+        {
+            return type == typeof(int);
+        }
     }
 }

@@ -23,5 +23,10 @@ namespace TypesCreation
                 str.Append(Letters[rnd.Next(Letters.Length)]);
             return str.ToString();
         }
+
+        public bool Exist(Type type)
+        {
+            return type == typeof(string);
+        }
     }
 }

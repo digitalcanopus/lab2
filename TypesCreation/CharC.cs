@@ -15,5 +15,10 @@ namespace TypesCreation
             Random rnd = new Random();
             return (char)rnd.Next(char.MinValue, char.MaxValue + 1);
         }
+
+        public bool Exist(Type type)
+        {
+            return type == typeof(char);
+        }
     }
 }

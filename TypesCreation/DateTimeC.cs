@@ -18,5 +18,10 @@ namespace TypesCreation
             Random rnd = new Random();
             return MinDT.AddSeconds(rnd.Next() * (MaxDT - MinDT).TotalSeconds);
         }
+
+        public bool Exist(Type type)
+        {
+            return type == typeof(DateTime);
+        }
     }
 }
