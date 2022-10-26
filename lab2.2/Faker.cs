@@ -15,9 +15,9 @@ namespace lab2._2
         {
             foreach (var creator in creators)
             {
-                if (creator.CanGenerate(type))
+                if (creator.Exist(type))
                 {
-                    return generator.Generate(type, _context);
+                    return creator.Create(type);
                 }
             }
         }
