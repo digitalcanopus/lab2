@@ -23,8 +23,9 @@ namespace TypesCreation
             Random rnd = new Random();
             int size = rnd.Next(MinLen, MaxLen + 1);
             var elType = type.GetGenericArguments()[0];
+            Faker faker = new Faker();
             for (int i = 0; i < size; i++) 
-                //list.Add(Faker.Create(elType));
+                list.Add(faker.Create(elType));
 
             return list;
         }
