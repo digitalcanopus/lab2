@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
+using System.Reflection.Emit;
 using Interfaces;
 
 namespace lab2._2
@@ -11,23 +13,22 @@ namespace lab2._2
         public Faker() 
         { 
             creators = Creators();
-            //Assembly.LoadWithPartialName(".dll");
-            try
-            {
-                Assembly one = Assembly.LoadFrom("../../../../One.dll");
-                Type intCreator = one.GetType("One.IntC2");
-                creators = creators.Append((ICreate)Activator.CreateInstance(intCreator));
-            }
-            catch { }
 
-            try
-            {
-                Assembly two = Assembly.LoadFrom("../../../../Two.dll");
-                Type stringCreator = two.GetType("Two.StringC2");
-                creators = creators.Append((ICreate)Activator.CreateInstance(stringCreator));
-            }
-            catch { }
+            var plPaths = Directory.GetFiles("C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\сэпэпэ\\lab2.2\\lab2.2\\obj\\Debug\\net6.0", "*.dll");
 
+            foreach (var plPath in plPaths)
+            {
+                var asm = Assembly.LoadFrom(plPath);
+                var types = asm.GetTypes().Where(t => t.GetInterfaces().Any(i => i.FullName == typeof(ICreate).FullName));
+                foreach (var type in types)
+                {
+                    try
+                    {
+                        creators = creators.Append((ICreate)Activator.CreateInstance(type));
+                    }
+                    catch { }
+                }
+            }
         }
 
         private static IEnumerable<ICreate> Creators()
