@@ -7,33 +7,48 @@ namespace lab2._2
 {
     public class Faker : IFaker
     {
-        private readonly IEnumerable<ICreate> creators;
-        private readonly HashSet<Type> createdTypes = new();
+        private List<ICreate> creators;
+        private HashSet<Type> createdTypes = new();
 
         public Faker() 
         { 
             creators = Creators();
 
-            var plPaths = Directory.GetFiles("C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\сэпэпэ\\lab2.2\\lab2.2\\obj\\Debug\\net6.0", "*.dll");
-
-            foreach (var plPath in plPaths)
+            try
             {
-                var asm = Assembly.LoadFrom(plPath);
-                var types = asm.GetTypes().Where(t => t.GetInterfaces().Any(i => i.FullName == typeof(ICreate).FullName));
-                foreach (var type in types)
+                Assembly One = Assembly.LoadFrom("C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\сэпэпэ\\lab2.2\\lab2.2\\obj\\Debug\\net6.0\\One.dll");
+                Type[] types = One.GetTypes();
+                foreach (Type type in types)
                 {
-                    try
+                    if (type.GetInterfaces().Contains(typeof(ICreate)))
                     {
-                        creators = creators.Append((ICreate)Activator.CreateInstance(type));
+                        var asmList = (One.GetTypes().Where(t => t.GetInterfaces().Contains(typeof(ICreate))).Select(t => (ICreate)Activator.CreateInstance(t)).ToList());
+                        creators.AddRange(asmList);
                     }
-                    catch { }
                 }
             }
+            catch { }
+
+            try
+            {
+                Assembly Two = Assembly.LoadFrom("C:\\Users\\Lenovo\\OneDrive\\Рабочий стол\\сэпэпэ\\lab2.2\\lab2.2\\obj\\Debug\\net6.0\\Two.dll");
+                Type[] types = Two.GetTypes();
+                foreach (Type type in types)
+                {
+                    if (type.GetInterfaces().Contains(typeof(ICreate)))
+                    {
+                        var asmList = (Two.GetTypes().Where(t => t.GetInterfaces().Contains(typeof(ICreate))).Select(t => (ICreate)Activator.CreateInstance(t)).ToList());
+                        creators.AddRange(asmList);
+                    }
+                }
+            }
+            catch { }
         }
 
-        private static IEnumerable<ICreate> Creators()
+        private static List<ICreate> Creators()
         {
-            return Assembly.GetExecutingAssembly().GetTypes().Where(t => t.GetInterfaces().Contains(typeof(ICreate))).Select(t => (ICreate)Activator.CreateInstance(t)).ToList();
+            var result = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.GetInterfaces().Contains(typeof(ICreate))).Select(t => (ICreate)Activator.CreateInstance(t)).ToList();
+            return result;
         }
 
         public T Create<T>()

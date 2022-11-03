@@ -8,20 +8,17 @@ using Interfaces;
 
 namespace TypesCreation
 {
-    public class DateTimeC : ICreate
+    public class ByteC : ICreate
     {
-        public DateTime MinDT { get; set; } = new(1500, 2, 3, 0, 0, 0);
-        public DateTime MaxDT { get; set; } = new(2022, 2, 3, 0, 0, 0);
-
         public object Create(Type type)
         {
             Random rnd = new Random();
-            return MinDT.AddSeconds(rnd.Next() * (MaxDT - MinDT).TotalSeconds);
+            return (byte)rnd.Next(byte.MaxValue + 1);
         }
 
         public bool Exist(Type type)
         {
-            return type == typeof(DateTime);
+            return type == typeof(byte);
         }
     }
 }

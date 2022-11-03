@@ -20,7 +20,6 @@
     <ProjectReference Include="..\lab2.2\lab2.2.csproj" />
     <ProjectReference Include="..\One\One.csproj" />
     <ProjectReference Include="..\Two\Two.csproj" />
-    <ProjectReference Include="..\TypesCreation\TypesCreation.csproj" />
   </ItemGroup>
 
 </Project>

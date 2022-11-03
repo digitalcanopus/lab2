@@ -7,13 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab2.2", "lab2.2\lab2.2.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\Interfaces.csproj", "{617BF258-E541-4BD0-A52E-DF274B61C89F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypesCreation", "TypesCreation\TypesCreation.csproj", "{A5AA5DFA-F005-4874-9284-2D25E88B3C1C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{25DA3B8F-877F-4910-AE1B-654E72CAADB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "One", "One\One.csproj", "{2D0915EE-57AE-4767-8193-317835FA891B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "One", "One\One.csproj", "{2D0915EE-57AE-4767-8193-317835FA891B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Two", "Two\Two.csproj", "{C042DC5D-8B1F-4FC9-9DA2-7F36B9F90602}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Two", "Two\Two.csproj", "{C042DC5D-8B1F-4FC9-9DA2-7F36B9F90602}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{617BF258-E541-4BD0-A52E-DF274B61C89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{617BF258-E541-4BD0-A52E-DF274B61C89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{617BF258-E541-4BD0-A52E-DF274B61C89F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5AA5DFA-F005-4874-9284-2D25E88B3C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5AA5DFA-F005-4874-9284-2D25E88B3C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5AA5DFA-F005-4874-9284-2D25E88B3C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5AA5DFA-F005-4874-9284-2D25E88B3C1C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{25DA3B8F-877F-4910-AE1B-654E72CAADB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{25DA3B8F-877F-4910-AE1B-654E72CAADB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25DA3B8F-877F-4910-AE1B-654E72CAADB6}.Release|Any CPU.ActiveCfg = Release|Any CPU

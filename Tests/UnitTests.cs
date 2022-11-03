@@ -14,47 +14,98 @@ namespace Tests
         [TestMethod]
         public void ByteCreation()
         {
-            ByteC byteC = new ByteC();
-            Assert.IsTrue(byteC.Exist(typeof(byte)));
+            Faker faker = new Faker();
+            byte b = faker.Create<byte>();
+            Assert.IsNotNull(b);
+            Assert.IsTrue(b != default(byte));
+        }
+
+        [TestMethod]
+        public void CharCreation()
+        {
+            Faker faker = new Faker();
+            char b = faker.Create<char>();
+            Assert.IsNotNull(b);
+            Assert.IsTrue(b != default(char));
         }
 
         [TestMethod]
         public void IntCreation()
         {
             Faker faker = new Faker();
-            var n = faker.Create<One.IntC2>();
+            int n = faker.Create<int>();
             Assert.IsNotNull(n);
+            Assert.IsTrue(n != default(int));
         }
 
         [TestMethod]
         public void StringCreation()
         {
             Faker faker = new Faker();
-            var s = faker.Create<Two.StringC2>();
+            string s = faker.Create<string>();
             Assert.IsNotNull(s);
         }
 
         [TestMethod]
         public void DecimalCreation()
         {
-            DecC decC = new DecC();
-            Assert.IsTrue(decC.Exist(typeof(decimal)));
+            Faker faker = new Faker();
+            decimal d = faker.Create<decimal>();
+            Assert.IsNotNull(d);
+            Assert.IsTrue(d != default(decimal));
         }
 
         [TestMethod]
         public void ListCreation()
         {
-            ListC listC = new ListC();
-            //Assert.IsNotNull(listC);
-            Assert.IsTrue(listC.Exist(typeof(List<>)));
+            Faker faker = new Faker();
+            List<byte> list = faker.Create<List<byte>>();
+            Assert.IsNotNull(list);
+        }
+
+        [TestMethod]
+        public void ListOfListCreation()
+        {
+            Faker faker = new Faker();
+            List<List<float>> list = faker.Create<List<List<float>>>();
+            Assert.IsNotNull(list);
+            Assert.IsNotNull(list[0]);
+            Assert.IsTrue(list[0][0].GetType() == typeof(float));
+        }
+
+        [TestMethod]
+        public void ULongCreation()
+        {
+            Faker faker = new Faker();
+            ulong ul = faker.Create<ulong>();
+            Assert.IsNotNull(ul);
+            Assert.IsTrue(ul != default(ulong));
         }
 
         class Song
         {
             public string Title { get; set; }
-            public string Artist { get; set; }
-            private int TimeSec { get; set; }
-            private readonly int Rating = 10;
+            public string artist;
+            public int TimeSec { get; set; }
+
+            public Song(string title, string artist)
+            {
+                Title = title;
+                this.artist = artist;
+            }
+        }
+
+        [TestMethod]
+        public void ObjCreation()
+        {
+            Faker faker = new Faker();
+            Song song = faker.Create<Song>();
+            Assert.IsNotNull(song.Title);
+            Assert.IsNotNull(song.artist);
+            Assert.IsNotNull(song.TimeSec);
+            Assert.IsTrue(song.Title != default(string));
+            Assert.IsTrue(song.artist != default(string));
+            Assert.IsTrue(song.TimeSec != default(int));
         }
 
         class Class1
@@ -65,7 +116,7 @@ namespace Tests
 
         class Class2
         {
-            private readonly string song = "Hourglass";
+            public string song;
             public Class3 class3Instance { get; set; }
         }
 
@@ -85,6 +136,7 @@ namespace Tests
             Assert.IsNotNull(class1Inst.Num);
             Assert.AreNotEqual(class1Inst.Num, 0);
             Assert.IsNotNull(class1Inst.class2Instance);
+            Assert.IsNotNull(class1Inst.class2Instance.song);
             Assert.IsNotNull(class1Inst.class2Instance.class3Instance);
             Assert.IsNotNull(class1Inst.class2Instance.class3Instance.flag);
             Assert.AreNotEqual(class1Inst.class2Instance.class3Instance.flag, false);
